@@ -25,7 +25,7 @@
 
 .navbar li:hover{
 color: #FDCE0B;
-  transform: scale(1.25); 
+  transform: scale(1.05); 
 }
 .navbar .icon{
     height: 20px;
@@ -60,4 +60,16 @@ color: #FDCE0B;
 .navbar option{
     background-color: #09005c;
     color: white;
+}
+
+@media (max-width: 900px){
+    .navbar {
+        padding: 20px 8%;
+    }
+
+    .navbar button{
+        gap: 8px;
+        padding: 8px 18px;
+        font-size: 14px;
+    }
 }

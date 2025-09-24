@@ -1,6 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-
-export const CoinContext = createContext();
+import { useEffect, useState } from "react";
+import { CoinContext } from "./context.js";
 
 const CoinContextProvider = (props) => {
   const [allCoin, setAllCoin] = useState([]);
@@ -13,8 +12,7 @@ const CoinContextProvider = (props) => {
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`;
     const options = {
       method: "GET",
-      // remove this line if your key isn’t required
-      headers: { "x-cg-demo-api-key": "CG-mTtSc8XgSijaB7XUfFCR7EDt" },
+      headers: { "x-cg-demo-api-key": "CG-mTtSc8XgSijaB7XUfFCR7EDt" }, // remove if not needed
     };
 
     try {

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import './NavBar.css'
-import { CointContext } from '../../context/CoinContext'
-import { symbol } from 'zod'
+import { CoinContext } from '../../context/context.js'
 
 const NavBar = () => {
 
-  const {setCurrency} = useContext(CointContext)
+  const {setCurrency} = useContext(CoinContext)
 
   const currencyHandler = (e)=>{
     switch (e.target.value){
