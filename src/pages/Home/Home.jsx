@@ -5,6 +5,23 @@ import { CoinContext } from '../../context/context.js';
 const Home = () => {
 const {allCoin, currency} = useContext(CoinContext);
 const [displayCoin, setDisplayCoin] = useState([]);
+const [input, setInput] = useState("")
+
+
+const inputHandler =(e)=> {
+  setInput(e.target.value);
+  if(e.target.value == ''){
+    setDisplayCoin(allCoin)
+  }
+}
+
+const searchHandler= async(e)=>{
+  e.preventDefault();
+  const coins = await allCoin.filter((item)=>{
+     return item.name.toLowerCase().includes(input.toLowerCase())
+  })
+  setDisplayCoin(coins)
+} 
 
 useEffect(()=>{
 setDisplayCoin(allCoin);
@@ -15,8 +32,13 @@ setDisplayCoin(allCoin);
       <div className='hero'>
         <h1> Crypto, Live & Loud </h1>
         <p>Just pure, real-time crypto values at your fingertips.</p>
-        <form>
-          <input type="text" placeholder='Search crypto...'/>
+        <form onSubmit={searchHandler}>
+          <input onChange={inputHandler} type="text" list='coin-list' value={input} placeholder='Search crypto...' required/>
+          <datalist id='coin-list'>
+            {allCoin.map((item, index)=>{
+              <option key={index} value={item.name}/>
+            })}
+          </datalist>
           <button type='submit'>Search</button>
         </form>
       </div>

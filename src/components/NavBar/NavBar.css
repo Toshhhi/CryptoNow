@@ -63,7 +63,7 @@ color: #FDCE0B;
 }
 
 @media (max-width: 900px){
-    .navbar {
+    .navbar{
         padding: 20px 8%;
     }
 
@@ -71,5 +71,20 @@ color: #FDCE0B;
         gap: 8px;
         padding: 8px 18px;
         font-size: 14px;
+    }
+}
+
+
+@media (max-width: 768px){
+    .navbar{
+        padding: 20px 5%;
+    }
+
+    .navbar ul{
+        display: none;
+    }
+
+    .navbar button img{
+        width: 12px;
     }
 }
